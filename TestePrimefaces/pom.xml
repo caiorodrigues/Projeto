@@ -7,22 +7,22 @@
 	<packaging>war</packaging>
 
 	<!-- BUILD CONFIGURATION -->
-   <build>
-       <plugins>
-           <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-compiler-plugin</artifactId>
-               <version>2.3.2</version>
-               <configuration>
-                   <source>1.8</source>
-                   <target>1.8</target>
-               </configuration>
-           </plugin>
-       </plugins>
-   </build>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
-		
+
 		<!-- Primefaces 5.2 -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
@@ -37,46 +37,52 @@
 			<version>1.0.10</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- JSF -->
 		<dependency>
-           <groupId>javax.servlet</groupId>
-           <artifactId>javax.servlet-api</artifactId>
-           <version>3.0.1</version>
-           <scope>compile</scope>
-       </dependency>
-        
-       <!-- JSF -->
-       <dependency>
-           <groupId>com.sun.faces</groupId>
-           <artifactId>jsf-api</artifactId>
-           <version>2.2.9</version>
-           <scope>compile</scope>
-       </dependency>
-       <dependency>
-           <groupId>com.sun.faces</groupId>
-           <artifactId>jsf-impl</artifactId>
-           <version>2.2.9</version>
-           <scope>compile</scope>
-       </dependency>
-        
-       <!-- JSTL -->
-       <dependency>
-           <groupId>jstl</groupId>
-           <artifactId>jstl</artifactId>
-           <version>1.2</version>
-           <scope>compile</scope>
-       </dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- JSF -->
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.2.9</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>2.2.9</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- JSTL -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.2</version>
+		</dependency>
 	</dependencies>
-	
+
 	<repositories>
-        <repository>
-            <id>prime-repo</id>
-            <name>PrimeFaces Maven Repository</name>
-            <url>http://repository.primefaces.org</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
-   
-   
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+
 </project>

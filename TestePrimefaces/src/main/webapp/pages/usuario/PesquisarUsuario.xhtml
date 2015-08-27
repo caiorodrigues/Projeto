@@ -1,14 +1,82 @@
 <ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="titulo">#{msg.lista_de_usuarios}</ui:define>
-	
+
 	<ui:define name="corpo">
-		<p:commandButton>CLIQUE</p:commandButton>
+	
+		<f:metadata>
+    		<!-- <o:viewParam name="produto" value="#{cadastroProdutoBean.produto}" /> -->
+    		<f:event listener="#{usuarioController.inicializar}" type="preRenderView" />
+    	</f:metadata>
+
+		<h1>#{msg.lista_de_usuarios}</h1>
+
+		<h:form>
+			<p:panelGrid columns="2">
+				<p:outputLabel id="lbCodigoUsuario" for="txCodigoUsuario"
+					value="#{msg.codigo}" />
+				<p:inputText id="txCodigoUsuario"
+					value="#{usuarioController.usuario.codigo}" />
+
+				<p:outputLabel id="lbNomeUsuario" for="txNomeUsuario"
+					value="#{msg.nome}" />
+				<p:inputText id="txNomeUsuario" value="#{usuarioController.usuario.nome}" />
+
+				<p:outputLabel id="lbEmailUsuario" for="txEmailUsuario"
+					value="#{msg.email}" />
+				<p:inputText id="txEmailUsuario" value="#{usuarioController.usuario.email}" />
+
+				<p:outputLabel id="lbPwdUsuario" for="pwdUsuario"
+					value="#{msg.senha}" />
+				<p:password id="pwdUsuario" value="#{usuarioController.usuario.senha}" />
+
+				<p:outputLabel id="lbPwdConfirmUsuario" for="pwdConfirmPwdUsuario"
+					value="#{msg.confirmacao_da_senha}" />
+				<p:password id="pwdConfirmPwdUsuario" value="#{usuarioController.usuario.senha}" />
+
+				<p:outputLabel id="lbStatusUsuario" for="swtUsuario"
+					value="#{msg.ativo}#{msg.interrogacao} " />
+				<p:inputSwitch id="swtUsuario" value="#{usuarioController.usuario.status}">
+					<!-- <p:ajax listener="#{selectBooleanView.addMessage}" update="msg" /> -->
+				</p:inputSwitch>
+
+				<p:panelGrid />
+				<p:commandButton value="#{msg.salvar}"
+					action="#{usuarioController.salvar}" update="dataTable" />
+
+			</p:panelGrid>
+
+			<p:dataTable id="dataTable" var="usr" value="#{usuarioController.carregarListaUsuarios}">
+				<p:column headerText="Cód. Usuário">
+					<h:outputText value="#{usr.codigo}" />
+				</p:column>
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{usr.nome}" />
+				</p:column>
+
+				<p:column headerText="E-mail">
+					<h:outputText value="#{usr.email}" />
+				</p:column>
+
+				<p:column headerText="Senha">
+					<h:outputText value="#{usr.senha}" />
+				</p:column>
+				
+				<p:column headerText="Status">
+					<h:outputText value="#{usr.status.descricao}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+
+
+
 	</ui:define>
 
 </ui:composition>

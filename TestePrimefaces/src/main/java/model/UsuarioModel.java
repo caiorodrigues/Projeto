@@ -10,7 +10,7 @@ public class UsuarioModel implements Serializable{
 	private String nome;
 	private String senha;
 	private String email;
-	private String status;	
+	private StatusUsuarioEnum status = StatusUsuarioEnum.ATIVO;	
 	
 	public Long getCodigo() {
 		return codigo;
@@ -36,10 +36,10 @@ public class UsuarioModel implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getStatus() {
+	public StatusUsuarioEnum getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(StatusUsuarioEnum status) {
 		this.status = status;
 	}
 	
