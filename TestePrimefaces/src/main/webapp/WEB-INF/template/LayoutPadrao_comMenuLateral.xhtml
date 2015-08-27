@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="titulo">Projeto T.I.</ui:insert></title>
+        <h:outputStylesheet library="css" name="sistema2.css" />
+        <!-- <h:outputScript library="js" name="jquery.maskMoney.js"/> -->
+	</h:head>
+
+	<h:body>
+		<header>
+			<div>
+				<h:graphicImage library="images" name="loading.gif" />
+				<div style="float:right">
+					<p:inputText placeholder="Pesquisar" />
+				</div>
+			</div>
+			
+		</header>
+	</h:body>
+	
+	<div class="ui-grid ui-grid-responsive">
+    	<div class="ui-grid-row">
+        	<div class="ui-grid-col-2" id="menus" style="background-color: blue">
+			
+ 
+    <p:accordionPanel>
+        <p:ajax event="tabChange" listener="#{tabbedView.onTabChange}" />
+        <p:ajax event="tabClose" listener="#{tabbedView.onTabClose}" />
+ 
+        <p:tab title="Godfather Part I" >
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
+                <h:outputText
+                    value="The story begins as Don Vito Corleone..." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Godfather Part II">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="demo/images/godfather/godfather2.jpg" />
+                <h:outputText value="Francis Ford Coppola's legendary..." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Godfather Part III">
+            <h:panelGrid columns="2" cellpadding="10">
+                
+                <p:link value="Sobre" />
+            </h:panelGrid>
+        </p:tab>
+    </p:accordionPanel>
+
+		</div>
+        	<div class="ui-grid-col-10" id="conteudo" style="background-color: black; margin-left: 5px">
+        		<ui:insert name="corpo" />
+        	</div>
+    	</div>
+	</div>
+	
+	<p:separator style="margin-top: 20px" />
+	
+	<footer>
+		Footer - Footer - Footer - Footer - Footer - Footer - Footer - Footer
+	</footer>
+	
+</html>

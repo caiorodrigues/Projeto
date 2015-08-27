@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="titulo">Projeto T.I.</ui:insert></title>
+	<h:outputStylesheet library="css" name="sistema2.css" />
+	<h:outputScript library="js" name="jquery.maskMoney.js" />
+	<f:view>
+    	<f:loadBundle basename="classes/Messages" var="msg"/>
+	</f:view>
+</h:head>
+
+<h:body>
+	<p:ajaxStatus styleClass="ajax-status" onsuccess="configurarMoeda()">
+		<f:facet name="start">
+			<h:graphicImage library="images" name="loading.gif" />
+		</f:facet>
+		<f:facet name="complete">
+			<h:outputText value="" />
+		</f:facet>
+	</p:ajaxStatus>
+
+	<header>
+		<h:form>  
+    <p:growl id="messages"/>
+ 
+    <p:menubar styleClass="menu-sistema">
+        <p:submenu label="#{msg.arquivo}" icon="ui-icon-document">
+            <p:submenu label="#{msg.novo}" icon="ui-icon-contact">
+                <p:menuitem value="#{msg.projeto}" url="#" />
+                <p:menuitem value="#{msg.outro}" url="#" />
+            </p:submenu>
+            <p:menuitem value="#{msg.abrir}" url="#" />
+            <p:separator />
+            <p:menuitem value="#{msg.sair}" url="#" />
+        </p:submenu>
+ 
+        <p:submenu label="#{msg.editar}" icon="ui-icon-pencil">
+            <p:menuitem value="#{msg.desfazer}" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="#{msg.refazer}" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+ 
+        <p:submenu label="#{msg.ajuda}" icon="ui-icon-help">
+            <p:menuitem value="#{msg.conteudo}" url="#" />
+            <p:submenu label="#{msg.pesquisar}" icon="ui-icon-search">
+                <p:submenu label="#{msg.texto}">
+                    <p:menuitem value="#{msg.texto}" url="#" />
+                </p:submenu>
+                <p:menuitem value="#{msg.arquivo}" url="#" />
+            </p:submenu>
+        </p:submenu>
+ 
+        <p:submenu label="#{msg.acoes}" icon="ui-icon-gear">
+            <p:submenu label="Ajax" icon="ui-icon-refresh">
+                <p:menuitem value="#{msg.salvar}" actionListener="#{menuView.save}" icon="ui-icon-disk" update="messages"/>
+                <p:menuitem value="#{msg.atualizar}" actionListener="#{menuView.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
+            </p:submenu>
+            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
+                <p:menuitem value="#{msg.deletar}" actionListener="#{menuView.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
+            </p:submenu>
+        </p:submenu>
+ 
+        <p:menuitem value="#{msg.sair}" url="http://www.primefaces.org" icon="ui-icon-close" />
+        
+        <p:menuitem value="#{msg.usuario}" outcome="/pages/usuario/PesquisarUsuario" />
+ 
+        <f:facet name="options">
+            <p:inputText style="margin-right:10px" placeholder="#{msg.pesquisar}"/>
+            <p:commandButton type="button" value="#{msg.sair}" icon="ui-icon-extlink" />
+        </f:facet>
+    </p:menubar>
+</h:form>
+	</header>
+
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+
+	<p:separator style="margin-top: 20px" />
+
+	<footer> Projeto T.I. - Desenvolvido por Caio R. </footer>
+
+	<script>
+		function configurarMoeda() {
+			$(".moeda").maskMoney({
+				decimal : ",",
+				thousands : ".",
+				allowZero : true
+			});
+		}
+
+		$(document).ready(function() {
+			configurarMoeda();
+		});
+	</script>
+</h:body>
+
+</html>
