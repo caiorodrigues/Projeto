@@ -14,9 +14,11 @@
     		<f:event listener="#{usuarioController.inicializar}" type="preRenderView" />
     	</f:metadata>
 
-		<h1>#{msg.lista_de_usuarios}</h1>
-
 		<h:form>
+			<h1>#{msg.lista_de_usuarios}</h1>
+			
+			<p:messages autoUpdate="true" />
+			
 			<p:panelGrid columns="2">
 				<p:outputLabel id="lbCodigoUsuario" for="txCodigoUsuario"
 					value="#{msg.codigo}" />
@@ -46,32 +48,11 @@
 				</p:inputSwitch>
 
 				<p:panelGrid />
-				<p:commandButton value="#{msg.salvar}"
-					action="#{usuarioController.salvar}" update="dataTable" />
-
+				<p:commandButton value="#{msg.salvar}" id="botaoSalvar" 
+					action="#{usuarioController.salvar}" update="@form" />
 			</p:panelGrid>
 
-			<p:dataTable id="dataTable" var="usr" value="#{usuarioController.carregarListaUsuarios}">
-				<p:column headerText="Cód. Usuário">
-					<h:outputText value="#{usr.codigo}" />
-				</p:column>
-
-				<p:column headerText="Nome">
-					<h:outputText value="#{usr.nome}" />
-				</p:column>
-
-				<p:column headerText="E-mail">
-					<h:outputText value="#{usr.email}" />
-				</p:column>
-
-				<p:column headerText="Senha">
-					<h:outputText value="#{usr.senha}" />
-				</p:column>
-				
-				<p:column headerText="Status">
-					<h:outputText value="#{usr.status.descricao}" />
-				</p:column>
-			</p:dataTable>
+			
 		</h:form>
 
 

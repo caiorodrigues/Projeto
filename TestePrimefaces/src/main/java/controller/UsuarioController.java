@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ViewScoped;
+import javax.inject.Named;
 
 import util.jsf.FacesUtil;
 import model.UsuarioModel;
 
-@ManagedBean
+@Named
+@ViewScoped
 public class UsuarioController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -17,15 +20,19 @@ public class UsuarioController implements Serializable {
 	UsuarioModel usuario;
 	List<UsuarioModel> usuarioList;
 	
-	public UsuarioController(){
+	@PostConstruct
+	public void init(){
 		limpar();
 	}
 	
 	public void inicializar() {
-		usuarioList = new ArrayList<UsuarioModel>();
+			
+		if (FacesUtil.isNotPostback()) {
+			usuarioList = new ArrayList<UsuarioModel>();
+		}
 	}
 	
-	
+
 	public void carregarListaUsuarios(){
 		usuarioList = new ArrayList<UsuarioModel>();
 	}
