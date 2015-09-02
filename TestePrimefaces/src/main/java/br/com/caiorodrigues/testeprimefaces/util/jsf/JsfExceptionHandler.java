@@ -1,4 +1,4 @@
-package util.jsf;
+package br.com.caiorodrigues.testeprimefaces.util.jsf;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -15,7 +15,7 @@ import javax.faces.event.ExceptionQueuedEventContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import service.NegocioException;
+import br.com.caiorodrigues.testeprimefaces.service.NegocioException;
 
 public class JsfExceptionHandler extends ExceptionHandlerWrapper{
 

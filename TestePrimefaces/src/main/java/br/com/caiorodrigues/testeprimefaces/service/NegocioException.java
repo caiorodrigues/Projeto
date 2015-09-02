@@ -1,4 +1,4 @@
-package service;
+package br.com.caiorodrigues.testeprimefaces.service;
 
 public class NegocioException extends RuntimeException {
 

@@ -1,4 +1,4 @@
-package controller;
+package br.com.caiorodrigues.testeprimefaces.controller;
 
 import java.io.Serializable;
 import javax.annotation.PostConstruct;

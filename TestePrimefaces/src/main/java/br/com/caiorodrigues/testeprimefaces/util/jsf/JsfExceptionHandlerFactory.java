@@ -1,4 +1,4 @@
-package util.jsf;
+package br.com.caiorodrigues.testeprimefaces.util.jsf;
 
 import javax.faces.context.ExceptionHandler;
 import javax.faces.context.ExceptionHandlerFactory;

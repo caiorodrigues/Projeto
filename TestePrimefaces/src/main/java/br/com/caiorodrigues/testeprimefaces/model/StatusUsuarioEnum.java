@@ -1,4 +1,4 @@
-package model;
+package br.com.caiorodrigues.testeprimefaces.model;
 
 public enum StatusUsuarioEnum {
 	ATIVO("Ativo"),

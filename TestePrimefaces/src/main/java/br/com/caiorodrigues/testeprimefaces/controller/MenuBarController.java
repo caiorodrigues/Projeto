@@ -1,4 +1,4 @@
-package controller;
+package br.com.caiorodrigues.testeprimefaces.controller;
 
 	import javax.faces.application.FacesMessage;
 	import javax.faces.bean.ManagedBean;

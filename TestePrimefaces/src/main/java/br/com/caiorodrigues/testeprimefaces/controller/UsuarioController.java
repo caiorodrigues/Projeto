@@ -1,4 +1,4 @@
-package controller;
+package br.com.caiorodrigues.testeprimefaces.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,8 +8,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
-import util.jsf.FacesUtil;
-import model.UsuarioModel;
+import br.com.caiorodrigues.testeprimefaces.util.jsf.FacesUtil;
+import br.com.caiorodrigues.testeprimefaces.model.UsuarioModel;
 
 @Named
 @ViewScoped

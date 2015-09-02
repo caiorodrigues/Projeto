@@ -1,4 +1,4 @@
-package util.jsf;
+package br.com.caiorodrigues.testeprimefaces.util.jsf;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;

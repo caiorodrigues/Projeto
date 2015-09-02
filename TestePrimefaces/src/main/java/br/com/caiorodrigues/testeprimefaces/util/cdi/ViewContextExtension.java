@@ -1,4 +1,4 @@
-package util.cdi;
+package br.com.caiorodrigues.testeprimefaces.util.cdi;
 
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.spi.AfterBeanDiscovery;

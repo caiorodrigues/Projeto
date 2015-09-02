@@ -1,4 +1,4 @@
-package util.cdi;
+package br.com.caiorodrigues.testeprimefaces.util.cdi;
 
 import java.lang.annotation.Annotation;
 import java.util.Map;
