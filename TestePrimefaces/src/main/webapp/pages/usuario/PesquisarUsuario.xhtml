@@ -9,12 +9,9 @@
 
 	<ui:define name="corpo">
 	
-		<f:metadata>
-    		<!-- <o:viewParam name="produto" value="#{cadastroProdutoBean.produto}" /> -->
-    		<f:event listener="#{usuarioController.inicializar}" type="preRenderView" />
-    	</f:metadata>
+		
 
-		<h:form>
+		<h:form id="frmUsr">
 			<h1>#{msg.lista_de_usuarios}</h1>
 			
 			<p:messages autoUpdate="true" />
@@ -43,7 +40,7 @@
 
 				<p:outputLabel id="lbStatusUsuario" for="swtUsuario"
 					value="#{msg.ativo}#{msg.interrogacao} " />
-				<p:inputSwitch id="swtUsuario" value="#{usuarioController.usuario.status}">
+				<p:inputSwitch id="swtUsuario">
 					<!-- <p:ajax listener="#{selectBooleanView.addMessage}" update="msg" /> -->
 				</p:inputSwitch>
 
@@ -52,7 +49,27 @@
 					action="#{usuarioController.salvar}" update="@form" />
 			</p:panelGrid>
 
-			
+			<p:dataTable id="dataTable" var="usr" value="#{usuarioController.usuarioList}">
+				<p:column headerText="Cód. Usuário">
+					<h:outputText value="#{usr.codigo}" />
+				</p:column>
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{usr.nome}" />
+				</p:column>
+
+				<p:column headerText="E-mail">
+					<h:outputText value="#{usr.email}" />
+				</p:column>
+
+				<p:column headerText="Senha">
+					<h:outputText value="#{usr.senha}" />
+				</p:column>
+				
+				<p:column headerText="Status">
+					<h:outputText value="#{usr.status.descricao}" />
+				</p:column>
+			</p:dataTable>					
 		</h:form>
 
 

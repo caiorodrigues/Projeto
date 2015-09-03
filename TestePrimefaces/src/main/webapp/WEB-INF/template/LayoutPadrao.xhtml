@@ -10,14 +10,14 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title><ui:insert name="titulo">Projeto T.I.</ui:insert></title>
 	<h:outputStylesheet library="css" name="sistema2.css" />
-	<h:outputScript library="js" name="jquery.maskMoney.js" />
+	
 	<f:view>
     	<f:loadBundle basename="classes/Messages" var="msg"/>
 	</f:view>
 </h:head>
 
 <h:body>
-	<p:ajaxStatus styleClass="ajax-status" onsuccess="configurarMoeda()">
+	<p:ajaxStatus styleClass="ajax-status">
 		<f:facet name="start">
 			<h:graphicImage library="images" name="loading.gif" />
 		</f:facet>
@@ -86,19 +86,7 @@
 
 	<footer> Projeto T.I. - Desenvolvido por Caio R. </footer>
 
-	<script>
-		function configurarMoeda() {
-			$(".moeda").maskMoney({
-				decimal : ",",
-				thousands : ".",
-				allowZero : true
-			});
-		}
-
-		$(document).ready(function() {
-			configurarMoeda();
-		});
-	</script>
+	
 </h:body>
 
 </html>

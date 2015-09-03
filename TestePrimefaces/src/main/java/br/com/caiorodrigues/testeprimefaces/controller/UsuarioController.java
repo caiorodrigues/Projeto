@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.caiorodrigues.testeprimefaces.util.jsf.FacesUtil;
@@ -17,34 +18,42 @@ public class UsuarioController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Inject
 	UsuarioModel usuario;
-	List<UsuarioModel> usuarioList;
 	
+	List<UsuarioModel> usuarioList;
+		
 	@PostConstruct
 	public void init(){
+		System.out.println("PostConstruct Init:");
+		
+		if(usuarioList == null){
+			usuarioList = new ArrayList<UsuarioModel>();			
+		}
+		
 		limpar();
 	}
 	
-	public void inicializar() {
-			
+	/*public void inicializar() {
+		System.out.println("Inicializar: ");
 		if (FacesUtil.isNotPostback()) {
-			usuarioList = new ArrayList<UsuarioModel>();
+			System.out.println("Inicializar isnotpostback:");
 		}
-	}
-	
-
-	public void carregarListaUsuarios(){
-		usuarioList = new ArrayList<UsuarioModel>();
-	}
+	}*/
 
 	private void limpar() {
 		usuario = new UsuarioModel();		
 	}
 	
 	public void salvar(){
+		System.out.println(
+				"Código: " + usuario.getCodigo() + 
+				" \nNome: " + usuario.getNome() + 
+				" \nE-mail: " + usuario.getEmail() + 
+				" \nSenha: " + usuario.getSenha() + 
+				" \nStatus: " + usuario.getStatus().getDescricao());
 		
-		usuarioList.add(getUsuario());
-		usuario = new UsuarioModel();
+		usuarioList.add(usuario);
 		
 		limpar();
 		
@@ -62,5 +71,8 @@ public class UsuarioController implements Serializable {
 	public List<UsuarioModel> getUsuarioList() {
 		return usuarioList;
 	}
-	
+
+	public void setUsuarioList(List<UsuarioModel> usuarioList) {
+		this.usuarioList = usuarioList;
+	}
 }	
