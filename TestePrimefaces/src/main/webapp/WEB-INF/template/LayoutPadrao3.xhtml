@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="titulo">Projeto T.I.</ui:insert></title>
+	<h:outputStylesheet library="css" name="sistema2.css" />
+
+	<f:view>
+		<f:loadBundle basename="classes/Messages" var="msg" />
+	</f:view>
+</h:head>
+
+<h:body>
+	<div id="divHeader"
+		style="width: 100%; height: 45px; background-color: green;">
+		<ui:insert name="divHeader">
+			<ui:include src="/WEB-INF/template/Header.xhtml" />
+		</ui:insert>
+	</div>
+	<div>
+		<div id="divMenu"
+			style="width: 200px; height: 100%; background-color: aqua; float: left;">
+			<ui:insert name="divMenu">
+				<ui:include src="/WEB-INF/template/Menus.xhtml" />
+			</ui:insert>
+		</div>
+		<div id="divContent"
+			style="width: 100%; height: 100%; background-color: gray;">
+			<ui:insert name="corpo" />
+		</div>
+	</div>
+	<div id="divFooter" style="width: 100%; height: 60px;">
+		<p:separator style="margin-top: 20px" />
+
+		<footer> Projeto T.I. - Desenvolvido por Caio R. </footer>
+	</div>
+</h:body>
+</html>

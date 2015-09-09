@@ -1,51 +1,71 @@
-<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
-	<f:metadata>
-		<f:viewParam name="dummy"/>
+	<h:head>
 		
-	</f:metadata>
+	</h:head>
 
-	<ui:define name="titulo">Dashboard</ui:define>
+	<h:body>
+	<ui:composition template="/WEB-INF/template/LayoutPadrao3.xhtml">
 
-	<ui:define name="corpo">
-		<div style="height:100%; width:100%; margin: 10px 10px 10px 10px">
-    <h:form>
-        <p:growl id="msgs" showDetail="true" />
- 
-        <p:dashboard id="board" model="#{dashboardController.model}">
-            <p:ajax event="reorder" listener="#{dashboardController.handleReorder}" update="msgs" />
- 
-            <p:panel id="sports" header="Sports" style="margin: 5px 5px 5px 5px">
-                <p:chart type="line" model="#{chartController.animatedModel1}" style="width:400px;" />
-            </p:panel>
- 
-            <p:panel id="finance" header="Finance" style="margin: 5px 5px 5px 5px">
-                <p:chart type="line" model="#{chartController.animatedModel1}" style="width:400px;" />	
-            </p:panel>
- 
-            <p:panel id="lifestyle" header="Lifestyle" style="margin: 5px 5px 5px 5px">
-                <p:chart type="bar" model="#{chartController.animatedModel2}" style="width:400px;" />
-            </p:panel>
- 
-            <p:panel id="weather" header="Weather" style="margin: 5px 5px 5px 5px">
-                <h:outputText value="Weather Content" />
-            </p:panel>
- 
-            <p:panel id="politics" header="Politics" style="margin: 5px 5px 5px 5px">
-                <p:tagCloud model="#{tagCloudController.model}" style="size: 100%">
-        			<p:ajax event="select" update="msgs" listener="#{tagCloudController.onSelect}" />
-    			</p:tagCloud>
-            </p:panel>
-        </p:dashboard>
- 
-        <div style="clear:both" />
-    </h:form>
-</div>
-	</ui:define>
+		<f:metadata>
+			<f:viewParam name="dummy" />
+		</f:metadata>
 
-</ui:composition>
+		<ui:define name="titulo">Dashboard</ui:define>
+
+		<ui:define name="corpo">
+			<div style="margin: 10px 10px 10px 10px">
+				<h:form>
+					<p:growl id="msgs" showDetail="true" />
+
+					<p:dashboard id="board" model="#{dashboardController.model}">
+						<p:ajax event="reorder"
+							listener="#{dashboardController.handleReorder}" update="msgs" />
+
+						<p:panel id="sports" header="Sports"
+							style="margin: 5px 5px 5px 5px">
+							<p:chart type="line" model="#{chartController.animatedModel1}"
+								style="width:400px;" />
+						</p:panel>
+
+						<p:panel id="finance" header="Finance"
+							style="margin: 5px 5px 5px 5px">
+							<p:chart type="line" model="#{chartController.animatedModel1}"
+								style="width:400px;" />
+						</p:panel>
+
+						<p:panel id="lifestyle" header="Lifestyle"
+							style="margin: 5px 5px 5px 5px">
+							<p:chart type="bar" model="#{chartController.animatedModel2}"
+								style="width:400px;" />
+						</p:panel>
+
+						<p:panel id="weather" header="Weather"
+							style="margin: 5px 5px 5px 5px">
+							<h:outputText value="Weather Content" />
+						</p:panel>
+
+						<p:panel id="politics" header="Politics"
+							style="margin: 5px 5px 5px 5px">
+							<p:tagCloud model="#{tagCloudController.model}"
+								style="size: 100%">
+								<p:ajax event="select" update="msgs"
+									listener="#{tagCloudController.onSelect}" />
+							</p:tagCloud>
+						</p:panel>
+					</p:dashboard>
+
+					<div style="clear: both" />
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

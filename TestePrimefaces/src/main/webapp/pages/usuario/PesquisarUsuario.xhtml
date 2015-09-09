@@ -1,4 +1,4 @@
-<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+<ui:composition template="/WEB-INF/template/LayoutPadrao3.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -8,9 +8,6 @@
 	<ui:define name="titulo">#{msg.lista_de_usuarios}</ui:define>
 
 	<ui:define name="corpo">
-	
-		
-
 		<h:form id="frmUsr">
 			<h1>#{msg.lista_de_usuarios}</h1>
 			
@@ -43,13 +40,13 @@
 				<p:inputSwitch id="swtUsuario">
 					<!-- <p:ajax listener="#{selectBooleanView.addMessage}" update="msg" /> -->
 				</p:inputSwitch>
-
 				<p:panelGrid />
 				<p:commandButton value="#{msg.salvar}" id="botaoSalvar" 
 					action="#{usuarioController.salvar}" update="@form" />
 			</p:panelGrid>
 
-			<p:dataTable id="dataTable" var="usr" value="#{usuarioController.usuarioList}">
+			<p:dataTable id="dataTable" var="usr" value="#{usuarioController.usuarioList}" 
+				style="margin-top: 5px">
 				<p:column headerText="Cód. Usuário">
 					<h:outputText value="#{usr.codigo}" />
 				</p:column>

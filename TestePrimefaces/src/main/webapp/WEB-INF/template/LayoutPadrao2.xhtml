@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="titulo">Projeto T.I.</ui:insert></title>
+	<h:outputStylesheet library="css" name="sistema2.css" />
+	
+	<f:view>
+    	<f:loadBundle basename="classes/Messages" var="msg"/>
+	</f:view>
+</h:head>
+
+<h:body>
+	
+	
+	<p:layout fullPage="true">
+	
+		<p:ajaxStatus styleClass="ajax-status">
+		<f:facet name="start">
+			<h:graphicImage library="images" name="loading.gif" />
+		</f:facet>
+		<f:facet name="complete">
+			<h:outputText value="" />
+		</f:facet>
+	</p:ajaxStatus>
+	
+		<p:layoutUnit position="north" size="7%">
+			<div id="divHeader" align="center">
+				<ui:insert name="divHeader">
+					<ui:include src="/WEB-INF/template/Header.xhtml" />
+				</ui:insert>
+			</div>
+		</p:layoutUnit>
+		<p:layoutUnit position="west" size="25%">
+			<div id="divMenus" align="center">
+				<ui:insert name="divMenus">
+					<ui:include src="/WEB-INF/template/Menus.xhtml" />
+				</ui:insert>
+			</div>
+		</p:layoutUnit>
+		<p:layoutUnit position="center">
+			<div id="conteudo" align="center">
+				<ui:insert name="corpo" />
+			</div>
+		</p:layoutUnit>	
+	</p:layout>
+
+	<p:separator style="margin-top: 20px" />
+
+	<footer> Projeto T.I. - Desenvolvido por Caio R. </footer>
+
+	
+</h:body>
+
+</html>
