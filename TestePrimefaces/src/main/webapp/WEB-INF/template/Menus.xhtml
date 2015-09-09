@@ -14,9 +14,24 @@
 		<ui:composition>
 	
 			<h:form>
-				<p:button value="@ApplicationScoped" />
-				<p:button value="@ConversationScoped" />
-				<p:button value="@DependentScoped" />
+				<p:panelMenu style="width: 200px">
+					<p:submenu label="Usuários" icon="ui-icon-users">
+						<p:menuitem value="Cadastrar" />
+						<p:menuitem value="Pesquisar" outcome="/pages/usuario/PesquisarUsuario.xhtml" />
+					</p:submenu>
+					<p:submenu label="Ocorrências" icon="ui-icon-users">
+						<p:menuitem value="Cadastrar" />
+						<p:menuitem value="Pesquisar" />
+					</p:submenu>
+					<p:submenu label="Gráficos" icon="ui-icon-users">
+						<p:menuitem value="Cadastrar" />
+						<p:menuitem value="Pesquisar" />
+					</p:submenu>
+					<p:submenu label="Relatórios" icon="ui-icon-users">
+						<p:menuitem value="Cadastrar" />
+						<p:menuitem value="Pesquisar" />
+					</p:submenu>
+				</p:panelMenu>
 			</h:form>
 	
 		</ui:composition>

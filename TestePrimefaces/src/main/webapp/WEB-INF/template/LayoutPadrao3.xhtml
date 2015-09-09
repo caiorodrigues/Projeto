@@ -9,7 +9,7 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title><ui:insert name="titulo">Projeto T.I.</ui:insert></title>
-	<h:outputStylesheet library="css" name="sistema2.css" />
+	<!-- <h:outputStylesheet library="css" name="sistema2.css" />-->
 
 	<f:view>
 		<f:loadBundle basename="classes/Messages" var="msg" />
@@ -18,14 +18,14 @@
 
 <h:body>
 	<div id="divHeader"
-		style="width: 100%; height: 45px; background-color: green;">
+		style="width: 100%; height: 45px; background-color: green; ">
 		<ui:insert name="divHeader">
 			<ui:include src="/WEB-INF/template/Header.xhtml" />
 		</ui:insert>
 	</div>
 	<div>
 		<div id="divMenu"
-			style="width: 200px; height: 100%; background-color: aqua; float: left;">
+			style="width: 200px; background-color: aqua; float: left;">
 			<ui:insert name="divMenu">
 				<ui:include src="/WEB-INF/template/Menus.xhtml" />
 			</ui:insert>
